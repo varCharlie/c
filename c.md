@@ -2,12 +2,10 @@ TODO: Threads, ...
 
 
 #netinet/in.h
-- includes:
-    sys/socket.h
-    machine/endian.h
-    Availability.h
-    stdint.h (uint{8,16,32} types)
-    sys/appleapiots.h
+- includes
+  - `sys/socket.h`
+  - `machine/endian.h`
+  - `stdint.h (uint{8,16,32} types)`
 
 - defines options for use with [gs]etsockopt at the IP level
 
