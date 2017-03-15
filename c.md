@@ -7,7 +7,8 @@ TODO: Threads, ...
   - `machine/endian.h`
   - `stdint.h (uint{8,16,32} types)`
 
-```
+```c
+
   INADDR_ANY       (u_int32_t)0x00000000
   INADDR_BROADCAST (u_int32_t)0xffffffff
   INADDR_LOOPBACK  (u_int32_t)0x7f000001
@@ -76,7 +77,7 @@ TODO: Threads, ...
   h_errno
 
 - h_errno error codes:
-```
+```c
   Error codes from gethostbyname() / gethostbyaddr()
     HOST_NOT_FOUND  1. authoritative answer host not found
     TRY_AGAIN       2, non-authoritative host not found, or servfail
