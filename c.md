@@ -7,15 +7,12 @@ TODO: Threads, ...
   - `machine/endian.h`
   - `stdint.h (uint{8,16,32} types)`
 
-- defines options for use with [gs]etsockopt at the IP level
-
-- fines INADDR_str
+```
   INADDR_ANY       (u_int32_t)0x00000000
   INADDR_BROADCAST (u_int32_t)0xffffffff
   INADDR_LOOPBACK  (u_int32_t)0x7f000001
   INADDR_NONE      0xFFFFFFFF (return -1)
 
-- defines IPPROTO_str
   IPPROTO_RAW       255 (0xFF)
   IPPROTO_IP        0
   IPPROTO_HOPOPTS   0
@@ -30,21 +27,22 @@ TODO: Threads, ...
   IPPROTO_IPV6      41
   IPPROTO_SCTP      132
 
-- notes:
+/*
   0-1023 => well known ports
   1024-49151 => Registered ports
   49152-65535 => Dynamic and/or private ports
   INET_ADDRSTRLEN 16
+*/
 
-- defines structs:
-  in_addr:
-    ```c
+
+// structs
+
     struct in_addr {
       in_addr_t s_addr;
     }
-    ```
+    
   sockaddr_in: (socket address, internet style)
-    ```c
+
     struct sockaddr_in {
       __uint8_t sin_len;
       sa_family_t sin_family;
@@ -53,8 +51,8 @@ TODO: Threads, ...
       char sin_zero[8];
     }
 
-    ```
-- advanced:IP options: (ip options, for use with get/setsockopt at IP level)
+// advanced:IP options: (ip options, for use with get/setsockopt at IP level)
+
   IP_OPTIONS 1 -- get ip options
   IP_HDRINCL 2 -- include header with data
   IP_TOS 3     -- ip type of serviceand reced
@@ -64,7 +62,7 @@ TODO: Threads, ...
   IP_RSVP_ON 15 -- enable rsvp in kernel (16 to disable)
   IP_BOUND_IF   -- set/get bound interface
   IP_FW_ADD 40, DEL 41, FLUSH 42, ZERO 43, GET 4, RESETLOG 45
-
+```
 
 -------------------------------------------------------------------------------
 
@@ -78,7 +76,7 @@ TODO: Threads, ...
   h_errno
 
 - h_errno error codes:
-
+```
   Error codes from gethostbyname() / gethostbyaddr()
     HOST_NOT_FOUND  1. authoritative answer host not found
     TRY_AGAIN       2, non-authoritative host not found, or servfail
@@ -96,16 +94,15 @@ TODO: Threads, ...
     EAI_SYSTEM      11, system error returnedin errno
     EAI_OVERFLOW    14, argument buffer overflow
 
-- getaddrinfo flags:
+  getaddrinfo flags:
   AI_PASSIVE      0x00000001 -- get addr to use bind
   AI_CANONNAME    0x00000002 -- fill canonical name
   AI_NUMERICHOST  0x00000004 -- prevent resolution
   AI_NUMERICSERV  0x00001000 -- prevent name resolution
 
-- function prototypes:
-  ```c
+  function prototypes:
+  
   #include <netdb.h>
-
   struct protoent *
   getprotoent(void);
 
